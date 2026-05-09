@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Send, Globe, ExternalLink, CheckCircle } from "lucide-react";
 import type { Profile } from "@/types";
-import { PROJECT_TYPES, BUDGET_RANGES } from "@/lib/constants";
+import { PROJECT_TYPES } from "@/lib/constants";
 import ScrollReveal from "@/components/animations/ScrollReveal";
 import Input, { Textarea } from "@/components/ui/Input";
 import Button from "@/components/ui/Button";
@@ -18,7 +18,6 @@ export default function ContactSection({ profile }: ContactSectionProps) {
     name: "",
     email: "",
     project_type: "",
-    budget: "",
     message: "",
   });
   const [sending, setSending] = useState(false);
@@ -173,7 +172,7 @@ export default function ContactSection({ profile }: ContactSectionProps) {
                       Thank you for reaching out. I&apos;ll get back to you soon.
                     </p>
                     <button
-                      onClick={() => { setSent(false); setForm({ name: "", email: "", project_type: "", budget: "", message: "" }); }}
+                      onClick={() => { setSent(false); setForm({ name: "", email: "", project_type: "", message: "" }); }}
                       className="text-sm text-accent-deep underline mt-2"
                     >
                       Send another message
@@ -202,18 +201,6 @@ export default function ContactSection({ profile }: ContactSectionProps) {
                       >
                         <option value="">Select type…</option>
                         {PROJECT_TYPES.map((t) => <option key={t} value={t}>{t}</option>)}
-                      </select>
-                    </div>
-
-                    <div className="flex flex-col gap-1.5">
-                      <label className="text-sm font-medium text-text-secondary">Budget Range</label>
-                      <select
-                        value={form.budget}
-                        onChange={(e) => set("budget", e.target.value)}
-                        className="w-full px-4 py-2.5 rounded-xl bg-bg-secondary border border-border-soft text-text-primary text-sm focus:outline-none focus:ring-2 focus:ring-accent-primary transition-all"
-                      >
-                        <option value="">Select budget…</option>
-                        {BUDGET_RANGES.map((b) => <option key={b} value={b}>{b}</option>)}
                       </select>
                     </div>
 
