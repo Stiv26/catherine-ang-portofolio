@@ -101,19 +101,6 @@ export interface Profile {
   updated_at: string;
 }
 
-export interface Testimonial {
-  id: string;
-  client_name: string;
-  client_title: string | null;
-  client_avatar_url: string | null;
-  quote: string;
-  project_id: string | null;
-  project?: Project;
-  is_featured: boolean;
-  sort_order: number;
-  created_at: string;
-}
-
 export interface CommissionPackage {
   id: string;
   title: string;
@@ -144,6 +131,5 @@ export interface ContactFormData {
   name: string;
   email: string;
   project_type: string;
-  budget: string;
   message: string;
 }

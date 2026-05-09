@@ -5,7 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import {
   LayoutDashboard, Image, Folder, Briefcase, User,
-  Quote, Settings, LogOut, Menu, X, Palette, Brush,
+  Tag, Settings, LogOut, Menu, X, Palette, Brush,
 } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import { cn } from "@/lib/utils";
@@ -13,11 +13,11 @@ import { cn } from "@/lib/utils";
 const NAV_ITEMS = [
   { label: "Dashboard", href: "/admin", icon: LayoutDashboard },
   { label: "Artworks", href: "/admin/artworks", icon: Image },
+  { label: "Categories", href: "/admin/categories", icon: Tag },
   { label: "Projects", href: "/admin/projects", icon: Folder },
   { label: "Commissions", href: "/admin/commissions", icon: Brush },
   { label: "Experience", href: "/admin/experience", icon: Briefcase },
   { label: "Profile", href: "/admin/profile", icon: User },
-  { label: "Testimonials", href: "/admin/testimonials", icon: Quote },
   { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 

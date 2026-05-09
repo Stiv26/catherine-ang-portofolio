@@ -26,16 +26,6 @@ export const PROJECT_TYPES = [
   "Other",
 ];
 
-export const BUDGET_RANGES = [
-  "Under $100",
-  "$100 – $300",
-  "$300 – $500",
-  "$500 – $1,000",
-  "$1,000 – $3,000",
-  "$3,000+",
-  "Let's discuss",
-];
-
 export const EMPLOYMENT_TYPES = ["Freelance", "Full-time", "Part-time", "Internship"] as const;
 
 export const DISPLAY_SIZES = [
@@ -49,10 +39,11 @@ export const DISPLAY_SIZES = [
 export const ADMIN_NAV = [
   { label: "Dashboard", href: "/admin", icon: "LayoutDashboard" },
   { label: "Artworks", href: "/admin/artworks", icon: "Image" },
+  { label: "Categories", href: "/admin/categories", icon: "Tag" },
   { label: "Projects", href: "/admin/projects", icon: "Folder" },
+  { label: "Commissions", href: "/admin/commissions", icon: "Brush" },
   { label: "Experience", href: "/admin/experience", icon: "Briefcase" },
   { label: "Profile", href: "/admin/profile", icon: "User" },
-  { label: "Testimonials", href: "/admin/testimonials", icon: "Quote" },
   { label: "Settings", href: "/admin/settings", icon: "Settings" },
 ] as const;
 

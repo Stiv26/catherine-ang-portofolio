@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, project_type, budget, message } = body;
+    const { name, email, project_type, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
     if (!apiKey || !toEmail) {
       console.warn("Resend API not configured — logging form submission");
-      console.log("Contact form:", { name, email, project_type, budget, message });
+      console.log("Contact form:", { name, email, project_type, message });
       return NextResponse.json({ success: true });
     }
 
@@ -44,11 +44,6 @@ export async function POST(request: NextRequest) {
             ${project_type ? `
             <tr><td style="padding: 8px 0; color: #B89090; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Project Type</td></tr>
             <tr><td style="padding-bottom: 16px; color: #2D1B1B;">${project_type}</td></tr>
-            ` : ""}
-
-            ${budget ? `
-            <tr><td style="padding: 8px 0; color: #B89090; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Budget</td></tr>
-            <tr><td style="padding-bottom: 16px; color: #2D1B1B;">${budget}</td></tr>
             ` : ""}
 
             <tr><td style="padding: 8px 0; color: #B89090; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Message</td></tr>
