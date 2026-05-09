@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Commissions", href: "#commissions" },
+  { label: "Play", href: "#tetris" },
   { label: "Contact", href: "#contact" },
 ];
 

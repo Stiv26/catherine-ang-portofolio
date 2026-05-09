@@ -8,6 +8,7 @@ import ExperienceSection from "@/components/public/ExperienceSection";
 import ProjectsSection from "@/components/public/ProjectsSection";
 import ContactSection from "@/components/public/ContactSection";
 import CommissionSection from "@/components/public/CommissionSection";
+import TetrisSection from "@/components/public/TetrisSection";
 import type { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -123,6 +124,8 @@ export default async function HomePage() {
         packages={data.commissionPackages}
         isOpen={data.commissionOpen}
       />
+
+      <TetrisSection />
 
       <ContactSection profile={data.profile} />
 
