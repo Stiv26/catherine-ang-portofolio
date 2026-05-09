@@ -1,3 +1,5 @@
+export const revalidate = 3600;
+
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,6 +7,15 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { createClient } from "@/lib/supabase/server";
 import Badge from "@/components/ui/Badge";
 import type { Metadata } from "next";
+
+export async function generateStaticParams() {
+  const supabase = createClient();
+  const { data } = await supabase
+    .from("projects")
+    .select("slug")
+    .eq("status", "published");
+  return (data ?? []).map(({ slug }) => ({ slug }));
+}
 
 interface Props {
   params: { slug: string };
