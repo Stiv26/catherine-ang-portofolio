@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createStaticClient } from "@/lib/supabase/server";
 import Badge from "@/components/ui/Badge";
 import type { Metadata } from "next";
 
 export async function generateStaticParams() {
-  const supabase = createClient();
+  const supabase = createStaticClient();
   const { data } = await supabase
     .from("projects")
     .select("slug")
